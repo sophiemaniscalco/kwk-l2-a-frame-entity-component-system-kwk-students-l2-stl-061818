@@ -2,23 +2,55 @@
   <head>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   </head>
-
   <body>
 
     <a-scene light="defaultLightsEnabled: false">
 
       <!-- light source element -->
-      <!-- <a-entity light="type: ambient"></a-entity> -->
-
+      <a-entity light="type: ambient"></a-entity> 
+      <a-animation attribute="rotation"
+               dur="10000"
+               fill="forwards"
+               to="0 360 0"
+               repeat="indefinite">
+      </a-animation>
       <!-- our camera aka user perspective element -->
-      <!-- <a-entity camera look-controls wasd-controls position="0 0 15"></a-entity> -->
+      <a-entity camera look-controls wasd-controls position="0 0 15"></a-entity> 
 
       <!-- our initial sphere in the center of the scene -->
       <!-- your sphere here! -->
 
+      <a-sphere
+      position="2 10 -4" radius="4" color="green"
+      ></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="15" color="brown"></a-cylinder>
+      <a-sky id="image-360" radius="10" src="#city" position="" rotation="" scale="" visible="" material="" geometry="" data-set-image-fade-setup="true" animation__fade=""></a-sky>
+      <a-sky img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"></a-sky>
+      <a-assets>
+        <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+      
+      <!--  <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+
+
+</body>
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+      </a-assets>
+
     </a-scene>
 
-    <script src="./index.js"></script>
+    <script src="index.js"></script>
   </body>
 
 </html>

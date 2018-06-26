@@ -3,6 +3,8 @@
 const SCENE = document.querySelector('a-scene')
 
 // a few random starting positions we can use to make spheres.
+
+
 const startPositions = [
   [-3, -2, -4],
   [-1, 5, 2],
@@ -38,6 +40,8 @@ function createSphere() {
   newSphere.setAttribute("position", coords)
   return newSphere
 }
+
+
 
 function createSpheres() {
   // TODO: implement me!
